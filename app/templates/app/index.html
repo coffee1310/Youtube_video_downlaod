@@ -1,0 +1,122 @@
+{% load static %}
+<head>
+	<meta charset="utf-8">
+	<title>Youtube_downloader</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'app/css/style.css' %}">
+</head>
+<body>
+	<nav>
+		<h1>VidGet</h1>
+		<img src="{% static 'app/images/download.png' %}" class="download-logotip">
+	</nav>
+	<div class="main">
+		<p class="enter-link">Просто вставьте ссылку,чтобы скачать видео!</p>
+		<div class="fields">
+			<form class="add-link", method="post">
+			{% csrf_token %}
+			<input type="" name="link" class="link" id="link">
+			<select class="quality-list" name="quality-list">
+				<option class="quality">720p</option>
+				<option class="quality">480p</option>
+				<option class="quality">360p</option>
+				<option class="quality">240p</option>
+				<option class="quality">144p</option>
+			</select>
+			<button type="submit"><img src="{% static 'app/images/download_vid.png' %}" class="download-vid"></button>
+			<p class="error">{{error}}</p>
+		</form>
+		</div>
+		<div class="information">
+			<h2 class="how-use">Как использовать сервис</h2>
+			<div class="step-main">
+				<div class="step">1</div>
+				<div class="stripe"></div>
+			</div>
+			<p class="learning">Откройте YouTube и найдите видео, которое вы хотите скачать:
+Посетите официальный веб-сайт YouTube (www.youtube.com) и воспользуйтесь поиском или перейдите на канал, чтобы найти интересующее вас видео.</p>
+			<div class="step-main">
+				<div class="step">2</div>
+				<div class="stripe"></div>
+			</div>
+
+			<p class="learning">Скопируйте URL-адрес (ссылку) этого видео:
+
+На странице с видео найдите адресной строке URL-адрес видео и скопируйте его. Обычно это выглядит как длинная строка, начинающаяся с "https://www.youtube.com/watch?..."</p>
+
+			<div class="step-main">
+				<div class="step">3</div>
+				<div class="stripe"></div>
+			</div>
+
+			<p class="learning">Перейдите на наш сайт и найдите поле ввода, предназначенное для вставки ссылки:
+
+Откройте веб-браузер и перейдите на наш веб-сайт, где вы сможете скачать видео с YouTube. На главной странице найдите поле ввода, которое предназначено для вставки ссылки на видео.</p>
+
+			<div class="step-main">
+				<div class="step">4</div>
+				<div class="stripe"></div>
+			</div>
+
+			<p class="learning">Вставьте скопированную ссылку в это поле:
+
+Вставьте скопированную ранее ссылку на видео в поле ввода на нашем веб-сайте. Можно воспользоваться комбинацией клавиш Ctrl+V (для Windows) или Cmd+V (для Mac) или щелкнуть правой кнопкой мыши и выбрать "Вставить".</p>
+
+			<div class="step-main">
+				<div class="step">5</div>
+				<div class="stripe"></div>
+			</div>
+
+			<p class="learning">Выберите желаемое качество видео из доступных вариантов:
+
+На нашем веб-сайте вы можете выбрать предпочитаемое качество видео. Обычно предлагается несколько вариантов, таких как 1080p, 720p, 480p и т.д. Выберите наиболее подходящий вариант.</p>
+
+			<div class="step-main">
+				<div class="step">6</div>
+				<div class="stripe"></div>
+			</div>
+
+			<p class="learning">Нажмите кнопку "Скачать" или аналогичную кнопку на странице:
+
+После того, как вы вставили ссылку и выбрали качество видео, найдите кнопку "Скачать" или аналогичную кнопку на странице. Щелкните по ней, чтобы начать процесс скачивания.</p>
+
+			<div class="step-main">
+					<div class="step">7</div>
+					<div class="stripe"></div>
+			</div>
+
+			<p class="learning">Наш сервис начнёт обработку запроса и загрузит видео с YouTube:
+
+После нажатия кнопки "Скачать" наш сервис начнет обрабатывать ваш запрос и загрузит видео с YouTube. Это может занять некоторое время в зависимости от размера видео и скорости вашего интернет-соединения.</p>
+		</div>
+
+	</div>
+	{% if video_downloaded == True %}
+	<div id="video" data-video-id="{{ video_personal_ID }}"></div>
+		 <script>
+    window.addEventListener('DOMContentLoaded', function() {
+    	var videoElement = document.getElementById('video');
+		var videoPersonalID = videoElement.dataset.videoId;
+		var videoURL = `/static/app/videos/${videoPersonalID}.mp4`;  // URL для скачивания видео
+        console.log(videoURL)
+        console.log(videoPersonalID)
+        var fileName = '{{video_personal_ID}}.mp4';  // Имя файла видео
+
+        // Создание элемента ссылки
+        var link = document.createElement('a');
+        link.href = videoURL;
+        link.download = fileName;
+        link.style.display = 'none';
+
+        // Асинхронное скачивание файла
+        fetch(videoURL)
+            .then(response => response.blob())
+            .then(blob => {
+                link.href = URL.createObjectURL(blob);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+    });
+</script>
+    {% endif %}
+</body>

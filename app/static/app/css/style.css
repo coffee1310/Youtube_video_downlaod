@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@700&family=Roboto+Slab:wght@300&display=swap');
+
+/*Обнуление*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*-----------*/
+
+html{
+	font-family: 'Jura', sans-serif;
+	font-family: 'Roboto Slab', serif;
+}
+nav{
+	align-items: center;
+	text-align: center;
+	background-color: #52A874;
+	display: flex;
+	justify-content: center;
+}
+h1{
+	text-shadow: 4px 2px 1px rgba(179,179,179,0.67);
+	font-family: 'Jura';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 96px;
+	line-height: 114px;
+	text-align: center;
+	order: 1;
+	color: white;
+}
+.download-logotip{
+	filter: drop-shadow(4px 2px 1px rgba(179,179,179,0.67));
+	margin-left: 20px;
+	order: 2;
+	width: 90px;
+	height: 90px;
+}
+.link{
+	border: 3px solid white;
+	height: 60px;
+	width: 400px;
+	top: 200px;
+	margin-left: 20%;
+	position: absolute;
+	background-color: white;
+}
+.main {
+	width: 100%;
+	height: 200px;
+	background: rgb(4,118,150);
+	background: linear-gradient(90deg, rgba(4,118,150,1) 0%, rgba(0,212,255,1) 100%);
+}
+.enter-link{
+	top: 140px;
+	margin-left: 20%;
+	position: absolute;
+	font-size: 25px;
+	font-weight: bold;
+	color: white;
+	width: 400px;
+}
+.quality-list{
+	border-left: 1px solid gray;
+	position: absolute;
+	top: 200px;
+	margin-left: 40%;
+	width: 120px;
+	height: 60px;
+	font-size: 20px;
+}
+.download-vid{
+	position: absolute;
+	margin-left: 47%;
+	width: 60px;
+	top: 200px;
+	background-color: #fff;
+	border: 4px solid white;
+}
+.error{
+	font-size: 25px;
+	font-weight: bold;
+	color: white;
+	position: absolute;
+	margin-left: 52%;
+	top: 200px;
+	width: 320px;
+}
+.step {
+  position: relative;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: rgba(0, 212, 255, 1);
+  color: white;
+  font-weight: bold;
+}
+.how-use{
+	font-size: 45px;
+	text-align: center;
+	font-weight: bold;
+	margin-top: 300px;
+}
+.step-main{
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	margin-top: 100px;
+}
+.stripe {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  background-color: rgba(0, 212, 255, 1);
+}
+.learning{
+	display: flex;
+  align-items: center;
+  width: 50%;
+  font-size: 25px;
+  text-align: center;
+  margin: 100px auto;
+}
+.information{
+	padding-bottom: 1px;
+}

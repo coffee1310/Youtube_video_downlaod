@@ -1,0 +1,14 @@
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    var videoURL = '';
+    var fileName = '1.mp4'; // Замените на желаемое название файла с расширением
+
+    var link = document.createElement('a');
+    link.href = videoURL;
+    link.download = fileName;
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+</script>
